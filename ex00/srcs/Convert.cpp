@@ -62,15 +62,15 @@ void    Convert::toChar(void)
         std::cout << "Non displayale" << std::endl;
     else
         std::cout << "char: " << c << std::endl;
-    std::cout << std::fixed << std::setprecision(1) << std::endl;
     std::cout << "int: " << static_cast<int>(c) <<std::endl;
+    std::cout << std::fixed << std::setprecision(1) << std::endl;
     std::cout << "float: " << static_cast<float>(c) << std::endl;
     std::cout << "double: " << static_cast<double>(c) << std::endl;
 }
 
 void    Convert::toInt(void)
 {
-    
+
 }
 
 void    Convert::toFloat(void)
