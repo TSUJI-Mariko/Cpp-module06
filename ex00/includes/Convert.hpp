@@ -16,27 +16,37 @@
 #include <string>
 #include <stdexcept>
 #include <iomanip>
+#include <climits>
+#include <cfloat>
+#include <iomanip>
+#include <string>
+#include <cstdlib>
+
 
 class Convert
 {
     
     public:
         Convert(void);
-        Convert(std::string value);
+        Convert(long nb);
+        Convert(std::string str);
         Convert(const Convert &Convert);
         ~Convert(void);
         Convert &operator =(Convert const &convert);
         std::string    const &getStr(void) const;
-        int getGrade(void) const;
+        long    const &getNb(void) const;
 
         void    impossible(void);
         void    toChar(void);
         void    toInt(void);
         void    toFloat(void);
         void    toDouble(void);
+        void    seachType(void);
+        void    convertType(void);
 
     private:
         std::string  _str;
+        std::string _type;
 };
 
 std::ostream & operator<<(std::ostream & o, const Convert & rhs);

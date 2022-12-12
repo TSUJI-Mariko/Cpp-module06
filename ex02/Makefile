@@ -10,10 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= serialisation
+NAME	= Identify
 
 SRCS	=	main.cpp			\
-			Data.cpp	\
 
 CC	= c++
 
