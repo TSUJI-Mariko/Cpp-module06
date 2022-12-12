@@ -66,11 +66,10 @@ void    Convert::toChar(void)
 {
     char c;
     c = getStr()[0];
+    if (c <= -129 || c > 127)
+        std::cout << "char impossible" << std::endl;
     if (c <= 7 || (c > 12 && c < 32) || c == 127)
-    {
         std::cout << "char: Non displayale" << std::endl;
-        return ;
-    }
     else
         std::cout << "char: " << static_cast<char>(c) << std::endl;
     std::cout << "int: " << static_cast<int>(c) << std::endl;
@@ -107,6 +106,7 @@ void    Convert::toFloat(void)
 {
     float f;
     f = static_cast<float>(std::strtol(getStr().c_str(), NULL, 10));
+    
     if (f < FLT_MAX && f > FLT_MIN)
     {
         std::cout << std::fixed;
@@ -170,32 +170,35 @@ void    Convert::seachType(void)
         return ;
     }
     nb_point = 0;
-    int i = 0;
+    int i = 1;
     while (i < size)
     {
-        if (!std::isdigit(i))
+        if (!std::isdigit(this->_str[i]))
         {
             if((this->_str[i] != '.' && this->_str[i] != 'f') || (this->_str[i] == 'f' && i != (size -1)))
-            this->_type = "impossible";
-            return ;
-        }
-        if ((i == (size - 1)) && this->_str[i] == 'f')
-            this->_type = "float";
-        else if (this->_str[i] == '.')
-        {
-            nb_point += 1;
-            this->_type = "double";
-        }
-        if (this->_str[i] == '.' && this->_str[i + 1] == 'f')
-        {
-            this->_type = "impossible";
-            return ;
-        }
+            {
+                this->_type = "impossible";
+                return ;
+            }
+            if ((i == (size - 1)) && this->_str[i] == 'f')
+                this->_type = "float";
+            else if (this->_str[i] == '.')
+            {
+                nb_point += 1;
+                this->_type = "double";
+            }
+            if (this->_str[i] == '.' && this->_str[i + 1] == 'f')
+            {
+                this->_type = "impossible";
+                return ;
+            }
+    }
         if (nb_point > 1)
         {
             this->_type = "impossible";
             return ;
         }
+        i++;
     }
 }
 void    Convert::convertType(void)
