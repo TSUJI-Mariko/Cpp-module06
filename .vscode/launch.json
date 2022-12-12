@@ -33,7 +33,7 @@
             "request": "launch",
             "name": "C/C++ Debug",
             "program": "${workspaceFolder}/ex00/convert",
-            "args": ["123"],
+            "args": ["1.0f"],
             "cwd": "${workspaceFolder}"
         }
     ]
