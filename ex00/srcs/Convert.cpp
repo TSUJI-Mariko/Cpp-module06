@@ -201,6 +201,12 @@ void    Convert::seachType(void)
         i++;
     }
 }
+
+/*
+    this->_type "impossible"
+    -> for wrong argument
+*/
+
 void    Convert::convertType(void)
 {
     if (this->_type == "int")

@@ -80,6 +80,7 @@ void    identify(Base& p)
     on renvoie exception(bad_cast) avec typeinfo
     comme lib <typeinfo> est interdit sur le sujet, 
     on doit creer notre propre "try-catch"
+    il faut preparer try/catch manuellement
 */
 
 void    identify(Base* p)
